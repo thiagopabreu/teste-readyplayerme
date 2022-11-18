@@ -36,7 +36,7 @@
 
 
   <script>
-     navigator.getUserMedia(
+     navigator.mediaDevices.getUserMedia(
       // constraints
       {
         video: true,
@@ -89,33 +89,6 @@
     })
   </script>
 
-  <script>
-    function permissionIOS() {
-      console.log("Enter on the permissionIOS")
-
-      if (typeof DeviceMotionEvent.requestPermission === 'function') {
-        console.log("Request permissionIOS")
-        // Handle iOS 13+ devices.
-        DeviceMotionEvent.requestPermission()
-          .then((state) => {
-            if (state === 'granted') {
-              //  this.controls = new THREE.DeviceOrientationControls( this.camera );    
-              confirm("Permission is granted for DeviceMotionEvent");
-              window.deviceMotionGranted = true;
-              console.log("Granted device motion")
-            } else {
-              console.log("Request rejected")
-
-              console.error('Request to access the orientation was rejected');
-              window.deviceMotionGranted = false;
-
-            }
-          })
-          .catch(console.error);
-      }
-
-    } 
-  </script>
 
 
 </body>
